@@ -1,5 +1,7 @@
 package com.nano.min.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nano.min.network.AuthService
@@ -17,8 +19,9 @@ data class RegisterUiState(
 )
 
 class RegisterViewModel(
+    application: Application,
     private val authService: AuthService
-) : ViewModel() {
+) : ViewModelRes(application) {
 
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState: StateFlow<RegisterUiState> = _uiState.asStateFlow()

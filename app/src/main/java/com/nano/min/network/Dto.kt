@@ -30,3 +30,24 @@ data class MeResponse(
     val role: String? = null
 )
 
+@Serializable
+data class Chat(
+    val id: Long,
+    val title: String,
+    val users: List<User>,
+)
+
+@Serializable
+data class Message(
+    val id: Long,
+    val senderId: Long,
+    val timestamp: Long
+)
+
+@Serializable
+data class User(
+    val id: Long,
+    val name: String,
+    val username: String,
+    val email: String
+)
