@@ -14,4 +14,7 @@
     <string name="register_rationale">No account? Register</string>
     <string name="screen_settings">Settings</string>
     <string name="login_failed">Incorrect credentials</string>
+    <string name="new_chat">Create new chat</string>
+    <string name="menu">Open menu</string>
+
 </resources>

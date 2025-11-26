@@ -14,4 +14,7 @@
     <string name="register_rationale">Нет аккаунта? Зарегистрироваться</string>
     <string name="screen_settings">Настройки</string>
     <string name="login_failed">Неверный логин или пароль</string>
+    <string name="new_chat">Создать новый чат</string>
+    <string name="menu">Открыть меню</string>
+
 </resources>
