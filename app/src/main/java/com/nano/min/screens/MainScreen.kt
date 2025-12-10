@@ -22,12 +22,28 @@ import androidx.compose.ui.unit.dp
 import com.nano.min.R
 import kotlinx.coroutines.launch
 
+
+data class User(
+    val name: String,
+    val description: String,
+    val avatarResId: Int
+)
+
+
 // ------------------------ MAIN SCREEN ------------------------
 @Composable
 fun MainScreen() {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     var isViewingProfile by remember { mutableStateOf(false) }
+
+    val currentUser = remember {
+        User(
+            name = "NanoUser",
+            description = "Люблю технологии и быстрые поездки",
+            avatarResId = R.drawable.ic_launcher_foreground
+        )
+    }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -52,24 +68,25 @@ fun MainScreen() {
                     label = { Text("Мой профиль") },
                     selected = isViewingProfile,
                     onClick = {
-                        //isViewingProfile = true
+                        isViewingProfile = true
                         scope.launch { drawerState.close() }
                     }
                 )
+
             }
         }
     ) {
         if (isViewingProfile) {
             ProfileScreen(
-                name = "NanoUser",
-                description = "Люблю технологии и быстрые поездки",
-                avatarResId = R.drawable.ic_car
+                name = currentUser.name,
+                description = currentUser.description,
+                avatarResId = currentUser.avatarResId,
+                onBack = { isViewingProfile = false } // <- возвращаемся назад
             )
         } else {
-            HomeContent(
-                onOpenMenu = { scope.launch { drawerState.open() } }
-            )
+            HomeContent(onOpenMenu = { scope.launch { drawerState.open() } })
         }
+
     }
 }
 
@@ -174,6 +191,7 @@ fun HomeContent(onOpenMenu: () -> Unit) {
     }
 }
 
+
 // ------------------------ USER HEADER ------------------------
 @Composable
 fun UserAccountHeader(
@@ -191,11 +209,10 @@ fun UserAccountHeader(
             shape = RoundedCornerShape(16.dp),
             color = Color(0xFFEFEFEF)
         ) {
-            // Вместо painterResource используйте:
             Icon(
-                imageVector = Icons.Filled.Person, // или Icons.Default.AccountCircle
+                imageVector = Icons.Filled.Person,
                 contentDescription = "User icon",
-                modifier = Modifier.size(48.dp) // настройте размер
+                modifier = Modifier.size(48.dp)
             )
         }
         Spacer(modifier = Modifier.width(12.dp))
@@ -211,8 +228,6 @@ fun UserAccountHeader(
 @Composable
 fun MainScreenStaticPreview() {
     MaterialTheme {
-
-        // Заглушки вместо ресурсов
         CompositionLocalProvider {
             Column {
                 HomeContent(onOpenMenu = {})
