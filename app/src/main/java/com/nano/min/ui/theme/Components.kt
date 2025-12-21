@@ -45,7 +45,7 @@ fun AppButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, 
     }
 }
 
-@Preview
+@Preview(showSystemUi = false, showBackground = true)
 @Composable
 private fun Components() {
     MinTheme {
@@ -53,7 +53,6 @@ private fun Components() {
             Modifier.padding(vertical = 80.dp).fillMaxSize(),
             verticalArrangement = Arrangement.SpaceAround
         ) {
-
             LargeTitle(text = "Large Title")
             AppButton(
                 text = "App Button",
