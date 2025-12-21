@@ -2,7 +2,6 @@ package com.nano.min.network
 
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
-import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.serialization.kotlinx.json.*
