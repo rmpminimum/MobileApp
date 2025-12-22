@@ -14,11 +14,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val LightColorScheme = lightColorScheme(
-    primary = TextGray,
-    secondary = DarkGray,
-    tertiary = TextGray,
+    primary = RedSoft,
+    secondary = GreenSoft,
+    tertiary = BlueSoft,
+    onTertiary = Color.White,
     surface = Color.White,
-    onSurface = TextGray
+    onSurface = TextGray,
+    error = RedSoft,
+    onError = Color.White,
+    primaryContainer = GreenSoft,
+    onPrimaryContainer = Color.White,
+    secondaryContainer = RedSoft,
+    onSecondaryContainer = Color.White,
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
@@ -35,7 +36,7 @@ fun LargeTitle(text: String, modifier: Modifier = Modifier) {
 
 @Composable
 fun AppButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true) {
-    androidx.compose.material3.Button(
+    Button(
         onClick = onClick,
         modifier = modifier,
         shape = ShapeDefaults.Small,

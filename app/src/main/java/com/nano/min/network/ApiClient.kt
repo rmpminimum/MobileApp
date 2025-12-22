@@ -1,5 +1,6 @@
 package com.nano.min.network
 
+import com.nano.min.utils.localhostAlias
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -14,7 +15,7 @@ import kotlinx.serialization.json.Json
  * Simple Ktor HttpClient provider configured for JSON and logging.
  * Token is injected via [TokenStorage] when requests are made.
  */
-class ApiClient(val baseUrl: String = "https://minimum.illegalfiles.icu", val tokenStorage: TokenStorage) {
+class ApiClient(val baseUrl: String = "http://${localhostAlias}:5000", val tokenStorage: TokenStorage) {
     val httpClient: HttpClient by lazy {
         HttpClient(CIO) {
             install(ContentNegotiation) {

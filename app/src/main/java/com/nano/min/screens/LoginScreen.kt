@@ -23,6 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nano.min.R
+import com.nano.min.di.dataModule
+import com.nano.min.di.interactorModule
+import com.nano.min.di.viewModelModule
 import com.nano.min.navigation.LoginRoute
 import com.nano.min.ui.theme.AppButton
 import com.nano.min.ui.theme.KeyboardPassword
@@ -30,7 +33,13 @@ import com.nano.min.ui.theme.LargeTitle
 import com.nano.min.ui.theme.MinTheme
 import com.nano.min.ui.theme.Typography
 import com.nano.min.viewmodel.LoginViewModel
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.compose.koinViewModel
+import org.koin.core.context.GlobalContext
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
+import org.koin.dsl.koinApplication
 
 @Composable
 fun LoginScreen(
@@ -79,6 +88,7 @@ fun LoginScreen(
                     modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
                 )
                 OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth(),
                     value = uiState.email,
                     onValueChange = viewModel::onEmailChange,
                     singleLine = true
@@ -89,6 +99,7 @@ fun LoginScreen(
                     modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
                 )
                 OutlinedTextField(
+                    modifier = Modifier.fillMaxWidth(),
                     value = uiState.password,
                     onValueChange = viewModel::onPasswordChange,
                     singleLine = true,
@@ -120,6 +131,6 @@ fun LoginScreen(
 @Composable
 private fun Preview() {
     MinTheme {
-        // Preview without ViewModel injection
+
     }
 }
