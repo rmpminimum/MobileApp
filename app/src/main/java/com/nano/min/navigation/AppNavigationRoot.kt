@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.NavDisplay
-import com.nano.min.screens.LoginScreen
-import com.nano.min.screens.RegisterScreen
+import com.nano.min.screens.AuthScreen
+import com.nano.min.viewmodel.AuthMode
 
 @Composable
 fun AppNavigationRoot(
@@ -24,17 +24,15 @@ fun AppNavigationRoot(
 
     val loginFlow = entryProvider {
         entry<LoginRoute> { route ->
-            LoginScreen(
-                route,
-                navigateRegister = { backStack.add(RegisterRoute) },
-                navigateForgotPassword = {},
-                onLoginSuccess = { navigateToApp() }
+            AuthScreen(
+                initialMode = AuthMode.Login,
+                onAuthSuccess = { navigateToApp() }
             )
         }
         entry<RegisterRoute> { route ->
-            RegisterScreen(route,
-                navigateLogin = { backStack.add(LoginRoute) },
-                onRegisterSuccess = { navigateToApp() }
+            AuthScreen(
+                initialMode = AuthMode.Register,
+                onAuthSuccess = { navigateToApp() }
             )
         }
     } as (key: Route) -> NavEntry<Route>

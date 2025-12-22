@@ -14,6 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -30,6 +31,7 @@ fun LargeTitle(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         style = Typography.titleLarge,
+        textAlign = TextAlign.Center,
         modifier = modifier
     )
 }

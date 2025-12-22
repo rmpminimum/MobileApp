@@ -9,9 +9,14 @@
     <string name="screen_chat">Диалог с %s</string>
     <string name="password">Пароль</string>
     <string name="login">Войти</string>
-    <string name="register">Зарегистрироваться</string>
+    <string name="register">Продать душу AI</string>
     <string name="forgotpass">Забыли пароль?</string>
     <string name="register_rationale">Нет аккаунта? Зарегистрироваться</string>
     <string name="screen_settings">Настройки</string>
     <string name="login_failed">Неверный логин или пароль</string>
+    <string name="no_account">Аль нет учётки?</string>
+    <string name="send_reset">Сбросить пароль</string>
+    <string name="login_rationale">Уже есть аккаунт? Войти</string>
+    <string name="back_to_login">Вернуться к входу</string>
+    <string name="forgot_description">Введите ваш email, и мы отправим ссылку для сброса пароля</string>
 </resources>
