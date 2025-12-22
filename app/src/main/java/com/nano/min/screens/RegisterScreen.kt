@@ -56,10 +56,10 @@ fun RegisterScreen(
     ) {
         Spacer(Modifier.padding(top = 80.dp))
         Image(
-            painterResource(R.drawable.logo_no_back),
+            painterResource(R.drawable.logo),
             "app logo",
             modifier = Modifier
-                .size(140.dp)
+                .size(240.dp)
                 .align(Alignment.CenterHorizontally)
         )
         LargeTitle(

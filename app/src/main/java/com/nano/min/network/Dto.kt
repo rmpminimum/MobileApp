@@ -25,9 +25,10 @@ data class LoginResponse(
 
 @Serializable
 data class MeResponse(
-    val id: String? = null,
-    val email: String? = null,
-    val role: String? = null
+    val id: Long,
+    val login: String,
+    val createdAt: String,
+    val lastSeen: String
 )
 
 @Serializable
@@ -50,4 +51,48 @@ data class User(
     val name: String,
     val username: String,
     val email: String
+)
+
+@Serializable
+data class UserResponse(
+    val id: Long,
+    val login: String,
+    val createdAt: String,
+    val lastSeen: String
+)
+
+@Serializable
+data class ChatResponse(
+    val id: Long,
+    val type: String,
+    val createdAt: String,
+    val members: List<Long>
+)
+
+@Serializable
+data class CreateChatRequest(
+    val userId: Long
+)
+
+@Serializable
+data class SendMessageRequest(
+    val chatId: Long,
+    val content: String,
+    val type: String = "text"
+)
+
+@Serializable
+data class MessageResponse(
+    val id: Long,
+    val chatId: Long,
+    val senderId: Long,
+    val content: String,
+    val type: String,
+    val createdAt: String,
+    val isRead: Boolean
+)
+
+@Serializable
+data class ErrorResponse(
+    val error: String
 )
